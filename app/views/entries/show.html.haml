@@ -1,0 +1,29 @@
+- model_class = Entry
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.titleize
+
+%p
+  %strong= model_class.human_attribute_name(:title) + ':'
+  %br
+  = @entry.title
+%p
+  %strong= model_class.human_attribute_name(:url) + ':'
+  %br
+  = @entry.url
+%p
+  %strong= model_class.human_attribute_name(:summary) + ':'
+  %br
+  = @entry.summary
+%p
+  %strong= model_class.human_attribute_name(:published_at) + ':'
+  %br
+  = @entry.published_at
+%p
+  %strong= model_class.human_attribute_name(:feed_id) + ':'
+  %br
+  = @entry.feed_id
+
+
+= link_to t('.back', :default => t("helpers.links.back")), entries_path, :class => 'btn btn-default'
+= link_to t('.edit', :default => t("helpers.links.edit")), edit_entry_path(@entry), :class => 'btn btn-default'
+= link_to t('.destroy', :default => t("helpers.links.destroy")), entry_path(@entry), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'

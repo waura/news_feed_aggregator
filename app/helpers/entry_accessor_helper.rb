@@ -1,0 +1,2 @@
+module EntryAccessorHelper
+end

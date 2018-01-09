@@ -1,0 +1,13 @@
+%h1 Listing entries
+
+%table
+  %tr
+    %th Title
+    %th Url
+    %th Last Modified
+
+  - @feeds.each do |feed|
+    %tr
+      %td= link_to feed.title, feed
+      %td= feed.url
+      %td= feed.last_modified.to_s
